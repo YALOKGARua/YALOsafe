@@ -4,4 +4,7 @@ C:\Users\YALOKGAR\source\repos\YALOsafe\YALOsafe\main.cpp;C:\Users\YALOKGAR\sour
 C:\Users\YALOKGAR\source\repos\YALOsafe\YALOsafe\client.cpp;C:\Users\YALOKGAR\source\repos\YALOsafe\YALOsafe\x64\Release\client.obj
 C:\Users\YALOKGAR\source\repos\YALOsafe\YALOsafe\logger.cpp;C:\Users\YALOKGAR\source\repos\YALOsafe\YALOsafe\x64\Release\logger.obj
 C:\Users\YALOKGAR\source\repos\YALOsafe\YALOsafe\backup.cpp;C:\Users\YALOKGAR\source\repos\YALOsafe\YALOsafe\x64\Release\backup.obj
+C:\Users\YALOKGAR\source\repos\YALOsafe\YALOsafe\menu.cpp;C:\Users\YALOKGAR\source\repos\YALOsafe\YALOsafe\x64\Release\menu.obj
+C:\Users\YALOKGAR\source\repos\YALOsafe\YALOsafe\setting.cpp;C:\Users\YALOKGAR\source\repos\YALOsafe\YALOsafe\x64\Release\setting.obj
+C:\Users\YALOKGAR\source\repos\YALOsafe\YALOsafe\integrity.cpp;C:\Users\YALOKGAR\source\repos\YALOsafe\YALOsafe\x64\Release\integrity.obj
 C:\Users\YALOKGAR\source\repos\YALOsafe\YALOsafe\storage.cpp;C:\Users\YALOKGAR\source\repos\YALOsafe\YALOsafe\x64\Release\storage.obj

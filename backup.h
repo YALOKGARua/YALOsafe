@@ -2,6 +2,11 @@
 #define BACKUP_H
 
 #include <string>
-void createBackup(const std::string& filePath);
 
-#endif
+class Backup {
+public:
+    void createBackup(const std::string& filePath);
+    void restoreBackup(const std::string& backupPath, const std::string& destinationPath);
+};
+
+#endif // BACKUP_H

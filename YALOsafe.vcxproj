@@ -122,7 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,6 +138,9 @@
     <ClCompile Include="client.cpp" />
     <ClCompile Include="logger.cpp" />
     <ClCompile Include="backup.cpp" />
+    <ClCompile Include="menu.cpp" />
+    <ClCompile Include="setting.cpp" />
+    <ClCompile Include="integrity.cpp" />
     <ClCompile Include="storage.cpp">
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdcpp17</LanguageStandard>
     </ClCompile>
@@ -145,10 +148,16 @@
   <ItemGroup>
     <ClInclude Include="client.h" />
     <ClInclude Include="backup.h" />
+    <ClInclude Include="integrity.h" />
+    <ClInclude Include="settings.h" />
+    <ClInclude Include="menu.h" />
     <ClInclude Include="logger.h" />
     <ClInclude Include="server.h" />
     <ClInclude Include="encryption.h" />
     <ClInclude Include="storage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="users.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
