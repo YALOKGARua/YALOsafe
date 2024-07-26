@@ -1,14 +1,14 @@
-#include "backup.h"
 #include <filesystem>
 #include <iostream>
+
+namespace fs = std::filesystem;
 
 void createBackup(const std::string& filePath) {
     std::string backupPath = filePath + ".bak";
     try {
-        std::filesystem::copy_file(filePath, backupPath, std::filesystem::copy_options::overwrite_existing);
-        std::cout << "Backup created successfully: " << backupPath << std::endl;
+        fs::copy_file(filePath, backupPath, fs::copy_options::overwrite_existing);
     }
-    catch (const std::filesystem::filesystem_error& e) {
-        std::cerr << "Error creating backup: " << e.what() << std::endl;
+    catch (const fs::filesystem_error& e) {
+        std::cerr << "Backup error: " << e.what() << '\n';
     }
 }

@@ -5,12 +5,10 @@
 
 class EncryptionModule {
 public:
-    EncryptionModule(char key);
-    std::string encrypt(const std::string& data, char key) const;
-    std::string decrypt(const std::string& data, char key) const;
-
+    EncryptionModule();
+    EncryptionModule(const std::string& key);
 private:
-    char encryptionKey;
+    std::string key;
 };
 
 #endif

@@ -1,0 +1,12 @@
+﻿  encryption.cpp
+  main.cpp
+  storage.cpp
+LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
+  Generating code
+  3 of 691 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  YALOsafe.vcxproj -> C:\Users\YALOKGAR\source\repos\YALOsafe\x64\Release\YALOsafe.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.
