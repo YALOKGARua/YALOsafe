@@ -1,31 +1,58 @@
 #include "storage.h"
 #include <fstream>
-#include <sstream>
+#include <filesystem>
+#include <stdexcept>
+#include <iterator>
 
-std::string Storage::generateFileName(const std::string& key) const {
-    return key + ".dat";
-}
+Storage::Storage(char encryptionKey)
+    : encryptionKey(encryptionKey), encryptionModule(encryptionKey) {}
 
 void Storage::save(const std::string& key, const std::string& data) {
-    std::ofstream file(generateFileName(key), std::ios::binary);
-    if (!file) {
-        throw std::runtime_error("Failed to open file for writing: " + generateFileName(key));
+    std::string encryptedData = encryptionModule.encrypt(data, encryptionKey);
+    std::string fileName = generateFileName(key);
+    std::ofstream file(fileName, std::ios::binary);
+    if (file.is_open()) {
+        file.write(encryptedData.c_str(), encryptedData.size());
+        file.close();
     }
-    file.write(data.c_str(), data.size());
-    if (!file) {
-        throw std::runtime_error("Failed to write data to file: " + generateFileName(key));
+    else {
+        throw std::runtime_error("Unable to open file for writing");
     }
 }
 
 std::string Storage::load(const std::string& key) const {
-    std::ifstream file(generateFileName(key), std::ios::binary);
-    if (!file) {
-        throw std::runtime_error("Failed to open file for reading: " + generateFileName(key));
+    std::string fileName = generateFileName(key);
+    std::ifstream file(fileName, std::ios::binary);
+    if (file.is_open()) {
+        std::string encryptedData((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+        file.close();
+        return encryptionModule.decrypt(encryptedData, encryptionKey);
     }
-    std::stringstream buffer;
-    buffer << file.rdbuf();
-    if (!file) {
-        throw std::runtime_error("Failed to read data from file: " + generateFileName(key));
+    else {
+        throw std::runtime_error("Unable to open file for reading");
     }
-    return buffer.str();
+}
+
+void Storage::remove(const std::string& key) {
+    std::string fileName = generateFileName(key);
+    if (std::filesystem::remove(fileName)) {
+    }
+    else {
+        throw std::runtime_error("Unable to delete file");
+    }
+}
+
+std::vector<std::string> Storage::listKeys() const {
+    std::vector<std::string> keys;
+    for (const auto& entry : std::filesystem::directory_iterator(".")) {
+        std::string fileName = entry.path().filename().string();
+        if (fileName.length() > 4 && fileName.compare(fileName.length() - 4, 4, ".dat") == 0) {
+            keys.push_back(fileName.substr(0, fileName.size() - 4));
+        }
+    }
+    return keys;
+}
+
+std::string Storage::generateFileName(const std::string& key) const {
+    return key + ".dat";
 }

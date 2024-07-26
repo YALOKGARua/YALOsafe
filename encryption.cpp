@@ -1,14 +1,15 @@
 #include "encryption.h"
 
-std::string EncryptionModule::encrypt(const std::string& data, char key) {
-    std::string result = data;
-    for (char& c : result) {
+EncryptionModule::EncryptionModule(char key) : encryptionKey(key) {}
+
+std::string EncryptionModule::encrypt(const std::string& data, char key) const {
+    std::string encrypted = data;
+    for (char& c : encrypted) {
         c ^= key;
     }
-    return result;
+    return encrypted;
 }
 
-std::string EncryptionModule::decrypt(const std::string& data, char key) {
-  
+std::string EncryptionModule::decrypt(const std::string& data, char key) const {
     return encrypt(data, key);
 }

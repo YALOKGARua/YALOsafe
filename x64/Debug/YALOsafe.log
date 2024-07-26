@@ -1,7 +1,6 @@
-﻿  server.cpp
+﻿  backup.cpp
   encryption.cpp
   main.cpp
-  client.cpp
   storage.cpp
   Generating Code...
   YALOsafe.vcxproj -> C:\Users\YALOKGAR\source\repos\YALOsafe\x64\Debug\YALOsafe.exe
