@@ -12,4 +12,4 @@ private:
     std::string logFilePath;
 };
 
-#endif // LOGGER_H
+#endif
