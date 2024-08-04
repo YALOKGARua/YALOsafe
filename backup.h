@@ -9,4 +9,4 @@ public:
     void restoreBackup(const std::string& backupPath, const std::string& destinationPath);
 };
 
-#endif // BACKUP_H
+#endif
