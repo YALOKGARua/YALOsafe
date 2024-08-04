@@ -9,4 +9,4 @@ public:
     static bool checkIntegrity(const std::string& filePath, const std::string& expectedHash);
 };
 
-#endif // INTEGRITY_H
+#endif
